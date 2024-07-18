@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>レスポンシブナビゲーションバー</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      background-color: #333;
+      padding: 10px;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+    }
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    .navbar .menu-icon {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .navbar a {
+        display: none;
+      }
+      .navbar .menu-icon {
+        display: block;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#home">ホーム</a>
+    <a href="#about">アバウト</a>
+    <a href="#contact">コンタクト</a>
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+  </div>
+  <script>
+    function toggleMenu() {
+      var links = document.querySelectorAll('.navbar a');
+      for (var i = 0; i < links.length; i++) {
+        if (links[i].style.display === "block") {
+          links[i].style.display = "none";
+        } else {
+          links[i].style.display = "block";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
