@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>進行状況バーアニメーション</title>
+  <style>
+    .progress-bar {
+      width: 100%;
+      background-color: #f3f3f3;
+    }
+    .progress-bar-fill {
+      width: 0;
+      height: 30px;
+      background-color: #4caf50;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      transition: width 1s;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar">
+    <div class="progress-bar-fill" id="progress-bar">0%</div>
+  </div>
+  <button onclick="startProgress()">スタート</button>
+  <script>
+    function startProgress() {
+      var elem = document.getElementById("progress-bar");
+      var width = 0;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+        } else {
+          width++;
+          elem.style.width = width + '%';
+          elem.innerHTML = width * 1  + '%';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
